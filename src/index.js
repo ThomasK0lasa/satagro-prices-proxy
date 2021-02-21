@@ -10,9 +10,8 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  console.log(req.query)
   request(
-    { url: 'https://app.satagro.pl/api/plans/?'+qs.stringify(req.query) },
+    { url: 'https://app.satagro.pl/api/plans/?' + qs.stringify(req.query) },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
         return res.status(500).json({ type: 'error', message: err.message });
